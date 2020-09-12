@@ -1,0 +1,24 @@
+* vegacookbook
+
+A port of the [[https://bbc.github.io/rcookbook/][BBC ggplot2 cookbook]] into vega and vegalite. This makes use of the
+=gapminder= dataset which is included as a CSV in this repository.
+
+** References
+
+#+BEGIN_SRC bibtex 
+@manual{stylianou2020bbplot,
+  title =        {bbplot: Making ggplot Graphics in BBC News Style},
+  author =       {Nassos Stylianou and Will Dahlgreen and Robert Cuffe and Tom
+                  Calver and Ransome Mpini},
+  year =         2020,
+  note =         {R package version 0.2},
+}
+
+@manual{bryan2017gapminder,
+  title =        {{gapminder: Data from Gapminder}},
+  author =       {Jennifer Bryan},
+  year =         2017,
+  note =         {R package version 0.3.0},
+  url =          {https://CRAN.R-project.org/package=gapminder},
+}
+#+END_SRC
