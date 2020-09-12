@@ -3,6 +3,39 @@
 A port of the [[https://bbc.github.io/rcookbook/][BBC ggplot2 cookbook]] into vega and vegalite. This makes use of the
 =gapminder= dataset which is included as a CSV in this repository.
 
+[[./plot1.png]]
+
+#+BEGIN_SRC js :tangle plot1.json
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "title": {
+        "text": "Living longer",
+        "subtitle": "Life expectancy in Malawi 1952-2007",
+        "align": "left",
+        "anchor": "start"
+    },
+    "data": {
+        "url": "gapminder.csv"
+    },
+    "transform": [{"filter": "datum.country == 'Malawi'"}],
+    "mark": "line",
+    "encoding": {
+        "x": {
+            "field": "year",
+            "type": "temporal",
+            "timeUnit": "year",
+            "title": null,
+            "axis": {"grid": false}
+        },
+        "y": {
+            "field": "lifeExp",
+            "type": "quantitative",
+            "title": null
+        }
+    }
+}
+#+END_SRC
+
 ** References
 
 #+BEGIN_SRC bibtex 
