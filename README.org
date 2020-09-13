@@ -43,7 +43,7 @@ A port of the [[https://bbc.github.io/rcookbook/][BBC ggplot2 cookbook]] into ve
     "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
     "title": {
         "text": "Living longer",
-        "subtitle": "Life expectancy in Malawi 1952-2007",
+        "subtitle": "Life expectancy in China and the US",
         "align": "left",
         "anchor": "start"
     },
