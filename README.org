@@ -93,6 +93,61 @@ welcome provided they agree with the goals of the project.
 }
 #+END_SRC
 
+[[./plot3.png]]
+
+#+BEGIN_SRC js :tangle plot3.json
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "data": {
+        "url": "gapminder.csv"
+    },
+    "transform": [
+        {
+            "filter": {"field": "year", "equal": 2007}
+        },
+        {
+            "filter": {"field": "continent", "equal": "Africa"}
+        },
+        {
+            "filter": {"field": "lifeExp", "gte": 72}
+        }
+    ],
+    "mark": {
+        "type": "bar",
+        "color": "#1380A1"
+    },
+    "encoding": {
+        "x": {
+            "field": "country",
+            "type": "ordinal",
+            "sort": "ascending",
+            "title": null,
+            "axis": {
+                "grid": false,
+                "ticks": false
+            }
+        },
+        "y": {
+            "field": "lifeExp",
+            "type": "quantitative",
+            "title": null,
+            "axis": {
+                "ticks": false,
+                "domain": false
+            }
+        }
+    },
+    "title": {
+        "text": "Reunion is highest",
+        "subtitle": "Highest African life expectancy, 2007",
+        "align": "left",
+        "anchor": "start"
+    },
+    "view": {"stroke": null},
+    "width": 250
+}
+#+END_SRC
+
 ** References
 
 #+BEGIN_SRC bibtex 
