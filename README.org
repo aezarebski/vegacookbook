@@ -1,7 +1,16 @@
 * vegacookbook
 
-A port of the [[https://bbc.github.io/rcookbook/][BBC ggplot2 cookbook]] into vega and vegalite. This makes use of the
-=gapminder= dataset which is included as a CSV in this repository.
+** About
+  
+This project is a port of the [[https://bbc.github.io/rcookbook/][BBC ggplot2 cookbook]] into vega and vegalite. This
+makes use of the =gapminder= dataset which is included as a CSV in this
+repository. The goal is to have useful examples of vega-lite specifications
+recreating the main plots in the BBC cookbook. These /should/ be are easy to
+reuse. If getting the last 20% of the visualisation to agree makes up 80% of the
+code, then I will opt for only getting it 80% correct. Pull requests are /very/
+welcome provided they agree with the goals of the project.
+
+* Figures
 
 [[./plot1.png]]
 
