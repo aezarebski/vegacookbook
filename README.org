@@ -124,7 +124,8 @@ welcome provided they agree with the goals of the project.
             "title": null,
             "axis": {
                 "grid": false,
-                "ticks": false
+                "ticks": false,
+                "labelAngle": 0
             }
         },
         "y": {
