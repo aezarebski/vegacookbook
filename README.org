@@ -290,6 +290,97 @@ welcome provided they agree with the goals of the project.
 }
 #+END_SRC
 
+[[./plot6.png]]
+
+#+BEGIN_SRC js :tangle plot6.json
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "data": {
+        "url": "gapminder.csv"
+    },
+    "transform": [
+        {"filter": {"field": "year", "oneOf": [1967,2007]}},
+        {"filter": {"field": "country",
+                    "oneOf": [
+                        "Indonesia",
+                        "Libya",
+                        "Oman",
+                        "Vietnam",
+                        "Yemen, Rep."
+                    ]}}
+    ],
+    "encoding": {
+        "y": {
+            "field": "country",
+            "type": "ordinal",
+            "title": null,
+            "axis": {
+                "ticks": false,
+                "domain": false,
+                "grid": true
+            }
+        },
+        "x": {
+            "field": "lifeExp",
+            "type": "quantitative",
+            "axis": {
+                "grid": false,
+                "domain": false,
+                "ticks": false
+            },
+            "scale": {
+                "zero": false
+            },
+            "title": null
+        },
+        "color": {
+            "field": "year",
+            "type": "ordinal",
+            "title": null,
+            "scale": {
+                "range": [
+                    "#1380A1", "#FAAB18"
+                ]
+            }
+        }
+    },
+    "layer": [
+        {
+            "mark": {
+                "type": "rule",
+                "strokeWidth": 5
+            },
+            "encoding": {
+                "x": {
+                    "field": "lifeExp", "aggregate": "min"
+                },
+                "x2": {
+                    "field": "lifeExp", "aggregate": "max"
+                },
+                "color": {"value": "#dddddd"}
+            }
+        },
+        {
+            "mark": {
+                "type": "point",
+                "filled": true,
+                "size": 100
+            }
+        }
+    ],
+    "config": {
+        "view": {"stroke": "transparent"},
+        "legend": {"disable": true}
+    },
+    "title": {
+        "text": "We're living longer",
+        "subtitle": "Biggest life expectancy rise, 1967--2007",
+        "align": "left",
+        "anchor": "start"
+    }
+}
+#+END_SRC
+
 
 ** References
 
