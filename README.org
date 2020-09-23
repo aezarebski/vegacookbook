@@ -219,6 +219,78 @@ welcome provided they agree with the goals of the project.
 }
 #+END_SRC
 
+[[./plot5.png]]
+
+#+BEGIN_SRC js :tangle plot5.json
+ {
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "data": {
+        "url": "gapminder.csv"
+    },
+    "transform": [
+        {"filter": {"field": "year", "oneOf": [1967,2007]}},
+        {"filter": {"field": "country",
+                    "oneOf": [
+                        "Indonesia",
+                        "Libya",
+                        "Oman",
+                        "Vietnam",
+                        "Yemen, Rep."
+                    ]}}
+    ],
+    "mark": "bar",
+    "encoding": {
+        "column": {
+            "field": "country",
+            "type": "ordinal",
+            "title": null,
+            "header": {
+                "labelOrient": "bottom"
+            }
+        },
+        "x": {
+            "field": "year",
+            "type": "ordinal",
+            "title": null,
+            "axis": {
+                "labels": false,
+                "ticks": false
+            }
+        },
+        "y": {
+            "field": "lifeExp",
+            "type": "quantitative",
+            "axis": {
+                "grid": true,
+                "domain": false
+            },
+            "title": null
+        },
+        "color": {
+            "field": "year",
+            "type": "ordinal",
+            "title": null,
+            "scale": {
+                "range": [
+                    "#1380A1", "#FAAB18"
+                ]
+            }
+        }
+    },
+    "config": {
+        "view": {"stroke": "transparent"},
+        "legend": {"orient": "top"}
+    },
+    "title": {
+        "text": "We're living longer",
+        "subtitle": "Biggest life expectancy rise, 1967--2007",
+        "align": "left",
+        "anchor": "start"
+    }
+}
+#+END_SRC
+
+
 ** References
 
 #+BEGIN_SRC bibtex 
