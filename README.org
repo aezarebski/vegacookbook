@@ -381,6 +381,45 @@ welcome provided they agree with the goals of the project.
 }
 #+END_SRC
 
+[[./plot7.png]]
+
+#+BEGIN_SRC js :tangle plot7.json
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "data": {
+        "url": "gapminder.csv"
+    },
+    "transform": [
+        {"filter": {"field": "year", "equal": 2007}},
+        {"filter": {"field": "lifeExp", "range": [40,90]}}
+    ],
+    "mark": "bar",
+    "encoding": {
+        "x": {
+            "bin": true,
+            "field": "lifeExp",
+            "title": "Years"
+        },
+        "y": {
+            "aggregate": "count",
+            "axis": {
+                "domain": false
+            },
+            "title": null
+        },
+        "color": {"value": "#1380A1"}
+    },
+    "config": {
+        "view": {"stroke": "transparent"}
+    },
+    "title": {
+        "text": "How life expectancy varies",
+        "subtitle": "Distribution of life expectancy in 2007",
+        "align": "left",
+        "anchor": "start"
+    }
+}
+#+END_SRC
 
 ** References
 
