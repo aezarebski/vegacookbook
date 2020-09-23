@@ -149,6 +149,76 @@ welcome provided they agree with the goals of the project.
 }
 #+END_SRC
 
+[[./plot4.png]]
+
+#+BEGIN_SRC js :tangle plot4.json
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "data": { "url": "gapminder.csv"},
+    "transform": [
+        {"filter": {"field": "year", "equal": 2007}},
+        {
+            "calculate": "datum.lifeExp < 50 ? 'Under 50' : (datum.lifeExp < 65 ? '50-65' : (datum.lifeExp < 80 ? '65-80' : '80+'))",
+            "as": "binnedLifeExp"
+        }
+    ],
+    "mark": {
+        "type": "bar",
+        "size": 50
+    },
+    "width": {
+        "step": 60
+    },
+    "encoding": {
+        "y": {
+            "aggregate": "count",
+            "field": "binnedLifeExp",
+            "stack":  "normalize",
+            "title": null,
+            "axis": {
+                "format": ".1~%",
+                "domain": false
+            }
+        },
+        "x": {
+            "field": "continent",
+            "title": null,
+            "axis": {
+                "labelAngle": 0
+            }
+        },
+        "color": {
+            "field": "binnedLifeExp",
+            "title": null,
+            "scale": {
+                "range": [
+                    "#3B1C8C",
+                    "#21908D",
+                    "#5AC865",
+                    "#F9E721"
+                ],
+                "domain": [
+                    "Under 50",
+                    "50-65",
+                    "65-80",
+                    "80+"
+                ]
+            }
+        }
+    },
+    "title": {
+        "text": "How life expectancy varies",
+        "subtitle": "% of population by life expectancy band, 2007",
+        "align": "left",
+        "anchor": "start"
+    },
+    "config": {
+        "legend": {"orient": "top"}
+    },
+    "view": {"stroke": null}
+}
+#+END_SRC
+
 ** References
 
 #+BEGIN_SRC bibtex 
