@@ -481,6 +481,106 @@ welcome provided they agree with the goals of the project.
 }
 #+END_SRC
 
+[[./plot9.png]]
+
+#+BEGIN_SRC js :tangle plot9.json
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "title": {
+        "text": "Living longer",
+        "subtitle": "Life expectancy in China and the US",
+        "align": "left",
+        "anchor": "start"
+    },
+    "data": {
+        "url": "gapminder.csv"
+    },
+    "transform": [
+        {
+            "filter": {
+                "field": "country",
+                "oneOf": ["China", "United States"]
+            }
+        }
+    ],
+    "encoding": {
+        "x": {
+            "field": "year",
+            "type": "temporal",
+            "timeUnit": "year",
+            "title": null,
+            "axis": {"grid": false},
+            "scale": {
+                "domain": [1940,2050]
+            }
+        },
+        "y": {
+            "field": "lifeExp",
+            "type": "quantitative",
+            "title": null,
+            "scale": {
+                "domain": [0,85]
+            }
+        },
+        "color": {
+            "field": "country",
+            "type": "nominal",
+            "title": null
+        }
+    },
+    "layer": [
+        {
+            "mark": "line"
+        },
+        {
+            "transform": [
+                {"filter": {"field": "year", "equal": {"year": 2007}}}
+            ],
+            "mark": {
+                "type": "text",
+                "align": "left",
+                "dx": 10
+            },
+            "encoding": {
+                "text": {
+                    "field": "country"
+                }
+            }
+        },
+        {
+            "data": {
+                "values": [
+                    {
+                        "year": 1980,
+                        "lifeExp": 50
+                    }
+                ]
+            },
+            "mark": {
+                "type": "text",
+                "align": "left"
+            },
+            "encoding": {
+                "text": {
+                    "value": [
+                        "I'm quite a long",
+                        "annotation over",
+                        "three rows"
+                    ]
+                },
+                "color": {
+                    "value": "black"
+                }
+            }
+        }
+    ],
+    "config": {
+        "legend": {"disable": true}
+    }
+}
+#+END_SRC
+
+
 ** References
 
 #+BEGIN_SRC bibtex 
