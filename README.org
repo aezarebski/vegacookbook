@@ -657,6 +657,30 @@ welcome provided they agree with the goals of the project.
 }
 #+END_SRC
 
+To adjust the position of the annotation you can put in a fixed value for =x=
+and then tweak the =dx= of the text mark.
+
+[[./plot10b.png]]
+
+#+BEGIN_SRC js
+  {
+      "mark": {
+          "type": "text",
+          "color": "white",
+          "dx": 10
+      },
+      "encoding": {
+          "x": {
+              "value": 0
+          },
+          "text": {
+              "field": "roundedLifeExp"
+          }
+      }
+  }
+#+END_SRC
+
+
 ** References
 
 #+BEGIN_SRC bibtex 
