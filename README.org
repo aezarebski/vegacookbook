@@ -580,7 +580,7 @@ welcome provided they agree with the goals of the project.
 }
 #+END_SRC
 
-[[./plot10.png]]
+[[./plot10a.png]]
 
 #+BEGIN_SRC js :tangle plot10.json
 {
