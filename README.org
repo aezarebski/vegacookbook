@@ -680,6 +680,162 @@ and then tweak the =dx= of the text mark.
   }
 #+END_SRC
 
+[[./plot11.png]]
+
+#+BEGIN_SRC js :tangle plot11.json
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "title": {
+        "text": "Living longer",
+        "subtitle": "Life expectancy in China and the US",
+        "align": "left",
+        "anchor": "start"
+    },
+    "layer": [
+        {
+            "data": {
+                "url": "gapminder.csv"
+            },
+            "transform": [
+                {
+                    "filter": {
+                        "field": "country",
+                        "oneOf": ["China", "United States"]
+                    }
+                }
+            ],
+            "mark": "line",
+            "encoding": {
+                "x": {
+                    "field": "year",
+                    "type": "temporal",
+                    "timeUnit": "year",
+                    "title": null,
+                    "axis": {
+                        "grid": false,
+                        "ticks": false,
+                        "labelPadding": 10,
+                        "values": [1960,1980,2000]
+                    },
+                    "scale": {
+                        "domain": [1950,2020]
+                    }
+                },
+                "y": {
+                    "field": "lifeExp",
+                    "type": "quantitative",
+                    "title": null,
+                    "scale": {
+                        "domain": [0,85]
+                    },
+                    "axis": {
+                        "domain": false
+                    }
+                },
+                "color": {
+                    "field": "country",
+                    "type": "nominal",
+                    "title": null
+                }
+            }
+        },
+        {
+            "data": {
+                "url": "gapminder.csv"
+            },
+            "transform": [
+                {
+                    "filter": {
+                        "field": "country",
+                        "oneOf": ["China", "United States"]
+                    }
+                },
+                {
+                    "filter": {
+                        "field": "year",
+                        "equal": {"year": 2007}
+                    }
+                }
+            ],
+            "mark": {
+                "type": "text",
+                "align": "left",
+                "dx": 10
+            },
+            "encoding": {
+                "text": {
+                    "field": "country"
+                },
+                "x": {
+                    "field": "year",
+                    "type": "temporal",
+                    "timeUnit": "year"
+                },
+                "y": {
+                    "field": "lifeExp",
+                    "type": "quantitative",
+                    "title": null,
+                    "scale": {
+                        "domain": [0,85]
+                    }
+                },
+                "color": {
+                    "field": "country",
+                    "type": "nominal",
+                    "title": null
+                }
+            }
+        },
+        {
+            "data": {
+                "values": [
+                    {
+                        "year": 1980,
+                        "lifeExp": 60
+                    }
+                ]
+            },
+            "mark": {
+                "type": "text",
+                "align": "left",
+                "dy": -20
+            },
+            "encoding": {
+                "text": {
+                    "value": [
+                        "I'm quite a long",
+                        "annotation over",
+                        "three rows"
+                    ]
+                },
+                "color": {
+                    "value": "black"
+                }
+            }
+        },
+        {
+            "data": {
+                "values": [{}]
+            },
+            "encoding": {
+                "y": {"datum": 10}
+            },
+            "mark": {
+                "type": "rule",
+                "color": "red",
+                "strokeDash": [8,8]
+            }
+        }
+    ],
+    "config": {
+        "legend": {"disable": true}
+    },
+    "view": {
+        "stroke": null
+    },
+    "width": 500
+}
+#+END_SRC
 
 ** References
 
