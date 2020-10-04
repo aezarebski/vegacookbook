@@ -969,6 +969,84 @@ and then tweak the =dx= of the text mark.
 }
 #+END_SRC
 
+[[./plot14.png]]
+
+#+BEGIN_SRC js :tangle plot14.json
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "data": {
+        "url": "gapminder.csv"
+    },
+    "transform": [
+        {
+            "filter": {"field": "year", "equal": 2007}
+        },
+        {
+            "filter": {"field": "continent", "equal": "Africa"}
+        },
+        {
+            "filter": {"field": "lifeExp", "gte": 72}
+        },
+        {
+            "calculate": "format(datum.lifeExp, 'd')",
+            "as": "roundedLifeExp"
+        },
+        {
+            "calculate": "datum.country == 'Mauritius'",
+            "as": "isMauritius"
+        }
+    ],
+    "encoding": {
+        "y": {
+            "field": "country",
+            "type": "ordinal",
+            "sort": "-x",
+            "title": null,
+            "axis": {
+                "grid": false,
+                "ticks": false,
+                "labelAngle": 0
+            }
+        },
+        "x": {
+            "field": "lifeExp",
+            "type": "quantitative",
+            "title": "Years",
+            "axis": {
+                "ticks": false,
+                "domain": false
+            }
+        },
+        "color": {
+            "field": "isMauritius",
+            "scale": {
+                "range": [
+                    "#dddddd", "#1380A1"
+                ]
+            }
+
+        }
+    },
+    "mark": {
+        "type": "bar"
+    },
+    "title": {
+        "text": "Reunion is highest",
+        "subtitle": "Highest African life expectancy, 2007",
+        "align": "left",
+        "anchor": "start",
+        "dx": 40
+    },
+    "config": {
+        "legend": {
+            "disable": true
+        }
+    },
+    "view": {"stroke": null},
+    "width": 250
+}
+#+END_SRC
+
 ** References
 
 #+BEGIN_SRC bibtex 
