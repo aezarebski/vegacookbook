@@ -837,6 +837,70 @@ and then tweak the =dx= of the text mark.
 }
 #+END_SRC
 
+[[./plot12.png]]
+
+#+BEGIN_SRC js :tangle plot12.json
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "title": {
+        "text": "Asia's rapid growth",
+        "subtitle": "Population growth by continent 1952-2007",
+        "align": "left",
+        "anchor": "start"
+    },
+    "data": {
+        "url": "gapminder.csv"
+    },
+    "transform": [
+        {"filter": "datum.continent != 'Americas'"},
+        {"groupby": ["continent", "year"],
+         "aggregate": [{
+             "op": "sum",
+             "field": "pop",
+             "as": "pop_total"
+             }]
+         }
+    ],
+    "mark": "area",
+    "encoding": {
+        "x": {
+            "field": "year",
+            "type": "quantitative",
+            "scale": {
+                "domain": [1950,2010]
+            },
+            "title": null,
+            "axis": null
+        },
+        "y": {
+            "field": "pop_total",
+            "type": "quantitative",
+            "title": null,
+            "axis": {
+                "format": ".1e"
+            }
+        },
+        "color": {
+            "field": "continent",
+            "type": "nominal"
+        },
+        "column": {
+            "field": "continent",
+            "type": "nominal",
+            "title": null
+        }
+    },
+    "view": {
+        "stroke": null
+    },
+    "config": {
+        "legend": {
+            "disable": true
+            }
+    }
+}
+#+END_SRC
+
 ** References
 
 #+BEGIN_SRC bibtex 
