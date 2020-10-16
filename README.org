@@ -12,7 +12,7 @@ welcome provided they agree with the goals of the project.
 
 * Figures
 
-[[./plot1.png]]
+[[./.out/plot1.png]]
 
 #+BEGIN_SRC js :tangle plot1.json
 {
@@ -45,7 +45,7 @@ welcome provided they agree with the goals of the project.
 }
 #+END_SRC
 
-[[./plot2.png]]
+[[./.out/plot2.png]]
 
 #+BEGIN_SRC js :tangle plot2.json
 {
@@ -93,7 +93,7 @@ welcome provided they agree with the goals of the project.
 }
 #+END_SRC
 
-[[./plot3.png]]
+[[./.out/plot3.png]]
 
 #+BEGIN_SRC js :tangle plot3.json
 {
@@ -149,7 +149,7 @@ welcome provided they agree with the goals of the project.
 }
 #+END_SRC
 
-[[./plot4.png]]
+[[./.out/plot4.png]]
 
 #+BEGIN_SRC js :tangle plot4.json
 {
@@ -219,7 +219,7 @@ welcome provided they agree with the goals of the project.
 }
 #+END_SRC
 
-[[./plot5.png]]
+[[./.out/plot5.png]]
 
 #+BEGIN_SRC js :tangle plot5.json
  {
@@ -290,7 +290,7 @@ welcome provided they agree with the goals of the project.
 }
 #+END_SRC
 
-[[./plot6.png]]
+[[./.out/plot6.png]]
 
 #+BEGIN_SRC js :tangle plot6.json
 {
@@ -381,7 +381,7 @@ welcome provided they agree with the goals of the project.
 }
 #+END_SRC
 
-[[./plot7.png]]
+[[./.out/plot7.png]]
 
 #+BEGIN_SRC js :tangle plot7.json
 {
@@ -421,7 +421,7 @@ welcome provided they agree with the goals of the project.
 }
 #+END_SRC
 
-[[./plot8.png]]
+[[./.out/plot8.png]]
 
 #+BEGIN_SRC js :tangle plot8.json
 {
@@ -481,7 +481,7 @@ welcome provided they agree with the goals of the project.
 }
 #+END_SRC
 
-[[./plot9.png]]
+[[./.out/plot9.png]]
 
 #+BEGIN_SRC js :tangle plot9.json
 {
@@ -580,7 +580,7 @@ welcome provided they agree with the goals of the project.
 }
 #+END_SRC
 
-[[./plot10a.png]]
+[[./.out/plot10a.png]]
 
 #+BEGIN_SRC js :tangle plot10.json
 {
@@ -660,7 +660,7 @@ welcome provided they agree with the goals of the project.
 To adjust the position of the annotation you can put in a fixed value for =x=
 and then tweak the =dx= of the text mark.
 
-[[./plot10b.png]]
+[[./.out/plot10b.png]]
 
 #+BEGIN_SRC js
   {
@@ -680,7 +680,7 @@ and then tweak the =dx= of the text mark.
   }
 #+END_SRC
 
-[[./plot11.png]]
+[[./.out/plot11.png]]
 
 #+BEGIN_SRC js :tangle plot11.json
 {
@@ -837,7 +837,7 @@ and then tweak the =dx= of the text mark.
 }
 #+END_SRC
 
-[[./plot12.png]]
+[[./.out/plot12.png]]
 
 #+BEGIN_SRC js :tangle plot12.json
 {
@@ -901,7 +901,7 @@ and then tweak the =dx= of the text mark.
 }
 #+END_SRC
 
-[[./plot13.png]]
+[[./.out/plot13.png]]
 
 #+BEGIN_SRC js :tangle plot13.json
 {
@@ -969,7 +969,7 @@ and then tweak the =dx= of the text mark.
 }
 #+END_SRC
 
-[[./plot14.png]]
+[[./.out/plot14.png]]
 
 #+BEGIN_SRC js :tangle plot14.json
 {
