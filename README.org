@@ -10,6 +10,16 @@ reuse. If getting the last 20% of the visualisation to agree makes up 80% of the
 code, then I will opt for only getting it 80% correct. Pull requests are /very/
 welcome provided they agree with the goals of the project.
 
+** Additional examples
+
+The =example= directory contains additional examples which replicate graphics
+produced by the BBC. Again, the goal is not to create a pixel-perfect
+replication of the original but to get close enough that the differences are the
+type of thing that one might leave for tidying up with a vector graphics editor.
+
+- =us-map-jh= shows a choropleth of the daily average number of COVID-19 cases
+  per million in each state of the US with some annotations.
+
 * Figures
 
 [[./.out/plot1.png]]
