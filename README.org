@@ -18,7 +18,11 @@ replication of the original but to get close enough that the differences are the
 type of thing that one might leave for tidying up with a vector graphics editor.
 
 - =us-map-jh= shows a choropleth of the daily average number of COVID-19 cases
-  per million in each state of the US with some annotations.
+  per million in each state of the US with some annotations. This example
+  demonstrates how to work with spatial data.
+- =uk-confirmed-cases= shows a time series of the total number of confirmed
+  SARS-CoV-2 infections on each day in the UK. This example demonstrates how to
+  work with temporal data.
 
 * Figures
 
