@@ -1,0 +1,11 @@
+* UK Confirmed cases
+
+See =uk-confirmed-cases=
+
+[[./.thumb/thumbnail-uk-confirmed-cases.png]]
+
+* US map of Johns Hopkins data
+
+See =us-map-jh=
+
+[[./.thumb/thumbnail-us-map-jh.png]]
