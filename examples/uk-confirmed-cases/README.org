@@ -1,0 +1,246 @@
+* BBC
+
+[[./uk_daily_cases_23oct.png]]
+
+* Vega-List
+
+[[./uk-confirmed-cases.png]]
+
+** Steps
+
+1. Download the confirmed cases data from =Gov.uk= which is in
+   =data_2020-Oct-23.csv=.
+2. Aggregate by date to get the total number of cases in the whole of the UK on
+   each day.
+3. Look at examples from both the =vegacookbook= and the Vega-Lite Gallery to
+   see how to parse dates properly.
+4. Take the mean over a 7-day window to get the smoothing line.
+5. Use =Gpick= to get the colours out of the original image to use.
+   
+#+BEGIN_SRC js :tangle uk-confirmed-cases.json
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "data": {
+        "url": "data_2020-Oct-23.csv",
+        "format": {
+            "parse": {"date": "date:'%Y-%m-%d'"}
+        }
+    },
+    "transform": [
+        {
+            "groupby": ["date"],
+            "aggregate": [{
+                "op": "sum",
+                "field": "newCasesBySpecimenDate",
+                "as": "totalCases"
+            }]
+        },
+        {
+            "window": [
+                {
+                    "field": "totalCases",
+                    "op": "mean",
+                    "as": "rolling_mean"
+                }
+            ],
+            "frame": [-4, 3]
+        },
+        {
+            "calculate": "datum.date >= utc(2020,4,17)",
+            "as": "testingBool"
+        }
+    ],
+    "layer": [
+        {
+            "mark": {
+                "type": "line",
+                "color": "#007f9d",
+                "size": 3
+            },
+            "encoding": {
+                "y": {
+                    "field": "rolling_mean",
+                    "type": "quantitative",
+                    "axis": {
+                        "labelFontSize": 15,
+                        "labelColor": "grey"
+                    }
+                },
+                "x": {
+                    "field": "date",
+                    "type": "temporal",
+                    "title": null,
+                    "axis": {
+                        "grid": false,
+                        "ticks": true,
+                        "labelAngle": 0,
+                        "format": "%B",
+                        "labelFontSize": 15,
+                        "labelColor": "grey",
+                        "offset": -20
+                    }
+                }
+            }
+        },
+        {
+            "mark": {
+                "type": "bar",
+                "size": 1
+            },
+            "encoding": {
+                "y": {
+                    "field": "totalCases",
+                    "type": "quantitative",
+                    "title": null,
+                    "axis": {
+                        "ticks": false,
+                        "domain": false
+                    }
+                },
+                "x": {
+                    "field": "date",
+                    "type": "temporal",
+                    "title": null,
+                    "axis": {
+                        "grid": false,
+                        "ticks": false,
+                        "labelAngle": 0
+                    }
+                },
+                "color": {
+                    "field": "testingBool",
+                    "type": "nominal",
+                    "scale": {
+                        "range": [
+                            "#b0d5de",
+                            "#479bb2"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "mark": {
+                "type": "rule",
+                "color": "black",
+                "strokeDash": [8,8]
+            },
+            "data": {
+                "values": [
+                    {
+                        "start": "2020-05-17",
+                        "yStart": 0,
+                        "yEnd": 27000
+                    }
+                ],
+                "format": {
+                    "parse": {"start": "date:'%Y-%m-%d'"}
+                }
+            },
+            "encoding": {
+                "x": {
+                    "field": "start",
+                    "timeUnit": "yearmonthdate"
+                },
+                "y": {
+                    "field": "yStart",
+                    "type": "quantitative"
+                },
+                "y2": {
+                    "field": "yEnd",
+                    "type": "quantitative"
+                }
+            }
+        },
+        {
+            "mark": {
+                "type": "text",
+                "size": 17,
+                "dx": 25
+            },
+            "data": {
+                "values": [
+                    {
+                        "annotationDate": "2020-03",
+                        "annotationY": 22500,
+                        "annotationText": "Targeted testing only"
+                    },
+                    {
+                        "annotationDate": "2020-07",
+                        "annotationY": 22500,
+                        "annotationText": "Mass testing available"
+                    }
+                ],
+                "format": {
+                    "parse": {"annotationDate": "date:'%Y-%m'"}
+                }
+            },
+            "encoding": {
+                "x": {
+                    "field": "annotationDate",
+                    "timeUnit": "yearmonth"
+                },
+                "text": {
+                    "field": "annotationText"
+                },
+                "y": {
+                    "field": "annotationY",
+                    "type": "quantitative"
+                }
+            }
+        },
+        {
+            "mark": {
+                "type": "text",
+                "size": 17,
+                "dx": 5,
+                "align": "left",
+                "color": "#007f9d",
+                "fontWeight": "bold"
+            },
+            "data": {
+                "values": [
+                    {
+                        "annotationDate": "2020-10-23",
+                        "annotationY": 15000,
+                        "annotationText": ["Seven-day","average"]
+                    }
+                ],
+                "format": {
+                    "parse": {"annotationDate": "date:'%Y-%m-%d'"}
+                }
+            },
+            "encoding": {
+                "x": {
+                    "field": "annotationDate",
+                    "timeUnit": "yearmonthdate"
+                },
+                "text": {
+                    "field": "annotationText"
+                },
+                "y": {
+                    "field": "annotationY",
+                    "type": "quantitative"
+                }
+            }
+        }
+    ],
+    "width": 500,
+    "height": 300,
+    "view": {"stroke": null},
+    "title": {
+        "text": "Daily confirmed cases continue to rise",
+        "subtitle": "Daily confirmed coronavirus cases by date reported",
+        "fontSize": 31,
+        "font": "serif",
+        "subtitleFontSize": 22,
+        "align": "left",
+        "anchor": "start"
+    },
+    "config": {
+        "legend": {
+            "disable": true
+        }
+    }
+}
+#+END_SRC
