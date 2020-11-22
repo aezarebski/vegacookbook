@@ -1,3 +1,9 @@
+* ECDC COVID-19 cases
+
+See =ecdc-covid-cases=
+
+[[./.thumb/thumbnail-ecdc-second-wave.png]]
+
 * UK Confirmed cases
 
 See =uk-confirmed-cases=

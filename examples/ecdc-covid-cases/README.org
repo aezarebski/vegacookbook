@@ -1,0 +1,141 @@
+* BBC
+
+[[./ecdc-second-wave-europe-24-oct.png]]
+
+* Vega-Lite
+
+[[./ecdc-second-wave.png]]
+
+Note that the likely reason for the differences in the data is that we retrieved
+the data much later so there has probably been adjustments to the reported
+values.
+
+** Steps
+
+1. Download the time series from =ecdc.europa.eu= which is in =data.csv=
+2. Parse the =dateRep= column as a date
+3. Define the lines to draw
+4. Define a layer for the line labels
+5. Adjust the axis labels
+
+#+begin_src js :tangle ecdc-second-wave.json
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "data": {
+        "url": "data.csv",
+        "format": {
+            "parse": {
+                "dateRep": "date:'%d/%m/%Y'"
+            }
+        }
+    },
+    "transform": [
+        {
+            "filter": {
+                "field": "countriesAndTerritories",
+                "oneOf": [
+                    "France",
+                    "Spain",
+                    "Italy",
+                    "Germany",
+                    "United_Kingdom"
+                ]
+            }
+        },
+        {
+            "filter": {
+                "field": "dateRep",
+                "lte": {
+                    "year": 2020,
+                    "month": "oct",
+                    "date": 23
+                }
+            }
+        },
+        {
+            "filter": {
+                "field": "dateRep",
+                "gte": {
+                    "year": 2020,
+                    "month": "jun",
+                    "date": 1
+                }
+            }
+        }
+    ],
+    "encoding": {
+        "x": {
+            "field": "dateRep",
+            "type": "temporal",
+            "title": null,
+            "axis": {
+                "grid": false,
+                "ticks": true,
+                "tickCount": 4,
+                "format": "%_d %b",
+                "labelFontSize": 17
+            }
+        },
+        "y": {
+            "field": "Cumulative_number_for_14_days_of_COVID-19_cases_per_100000",
+            "type": "quantitative",
+            "title": null,
+            "axis": {
+                "ticks": false,
+                "domain": false,
+                "labelFontSize": 17
+            }
+        },
+        "color": {
+            "field": "countriesAndTerritories"
+        }
+    },
+    "layer": [
+        {
+            "mark": "line"
+        },
+        {
+            "transform": [
+                {
+                    "filter": {
+                        "field": "dateRep",
+                        "gte": {
+                            "year": 2020,
+                            "month": "oct",
+                            "date": 23
+                        }
+                    }
+                }
+            ],
+            "mark": {
+                "type": "text",
+                "align": "left",
+                "dx": 5,
+                "fontWeight": "bold",
+                "fontSize": 17
+            },
+            "encoding": {
+                "text": {
+                    "field": "countriesAndTerritories"
+                }
+            }
+        }
+    ],
+    "title": {
+        "text": ["Coronavirus cases increasing in European","countries in recent weeks"],
+        "subtitle": "Total cases per 100,000 people by week up to 23 October",
+        "align": "left",
+        "anchor": "start",
+        "dx": 0,
+        "fontSize": 25,
+        "subtitleFontSize": 20
+    },
+    "config": {
+        "legend": {"disable": true}
+    },
+    "width": 500,
+    "height": 300,
+    "view": {"stroke": null}
+}
+#+end_src
+ 
