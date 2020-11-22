@@ -17,6 +17,8 @@ values.
 3. Define the lines to draw
 4. Define a layer for the line labels
 5. Adjust the axis labels
+   - The [[https://github.com/d3/d3-time-format#locale_format][documentation for D3 date formatting]] was useful in getting the date
+     labels to look right.
 
 #+begin_src js :tangle ecdc-second-wave.json
 {
