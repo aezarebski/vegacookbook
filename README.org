@@ -1,5 +1,7 @@
 * vegacookbook
 
+[[./vcb-logo.png]]
+
 ** About
   
 This project is a port of the [[https://bbc.github.io/rcookbook/][BBC ggplot2 cookbook]] into vega and vegalite. This
