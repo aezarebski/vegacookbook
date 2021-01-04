@@ -1,3 +1,9 @@
+* R over time
+
+See =thumbnail-r-over-time.png=
+
+[[./.thumb/thumbnail-r-over-time.png]]
+
 * ECDC COVID-19 cases
 
 See =ecdc-covid-cases=
