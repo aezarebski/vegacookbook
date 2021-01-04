@@ -1,4 +1,4 @@
-* vegacookbook
+#+title: Vegacookbook
 
 [[./vcb-logo.png]]
 
@@ -12,19 +12,23 @@ reuse. If getting the last 20% of the visualisation to agree makes up 80% of the
 code, then I will opt for only getting it 80% correct. Pull requests are /very/
 welcome provided they agree with the goals of the project.
 
-** Additional examples
+* Additional examples
 
-The =example= directory contains additional examples which replicate graphics
+The [[https://github.com/aezarebski/vegacookbook/tree/master/examples][=example=]] directory contains additional examples which replicate graphics
 produced by the BBC. Again, the goal is not to create a pixel-perfect
 replication of the original but to get close enough that the differences are the
 type of thing that one might leave for tidying up with a vector graphics editor.
 
-- =us-map-jh= shows a choropleth of the daily average number of COVID-19 cases
-  per million in each state of the US with some annotations. This example
-  demonstrates how to work with spatial data.
-- =uk-confirmed-cases= shows a time series of the total number of confirmed
+- [[https://github.com/aezarebski/vegacookbook/tree/master/examples/r-over-time][=r-over-time=]] shows a ribbon plot to display the uncertainty in estimates of
+  the effective reproduction number of SARS-CoV-2 in UK.
+- [[https://github.com/aezarebski/vegacookbook/tree/master/examples/ecdc-covid-cases][=ecdc-covid-cases=]] shows time series of cases of COVID-19 per capta for
+  several European countries.
+- [[https://github.com/aezarebski/vegacookbook/tree/master/examples/uk-confirmed-cases][=uk-confirmed-cases=]] shows a time series of the total number of confirmed
   SARS-CoV-2 infections on each day in the UK. This example demonstrates how to
   work with temporal data.
+- [[https://github.com/aezarebski/vegacookbook/tree/master/examples/us-map-jh][=us-map-jh=]] shows a choropleth of the daily average number of COVID-19 cases
+  per million in each state of the US with some annotations. This example
+  demonstrates how to work with spatial data.
 
 * Figures
 

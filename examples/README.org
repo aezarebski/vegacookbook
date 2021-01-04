@@ -1,23 +1,23 @@
 * R over time
 
-See =thumbnail-r-over-time.png=
+See [[https://github.com/aezarebski/vegacookbook/tree/master/examples/r-over-time][=r-over-time=]]
 
 [[./.thumb/thumbnail-r-over-time.png]]
 
 * ECDC COVID-19 cases
 
-See =ecdc-covid-cases=
+See [[https://github.com/aezarebski/vegacookbook/tree/master/examples/ecdc-covid-cases][=ecdc-covid-cases=]]
 
 [[./.thumb/thumbnail-ecdc-second-wave.png]]
 
 * UK Confirmed cases
 
-See =uk-confirmed-cases=
+See [[https://github.com/aezarebski/vegacookbook/tree/master/examples/uk-confirmed-cases][=uk-confirmed-cases=]]
 
 [[./.thumb/thumbnail-uk-confirmed-cases.png]]
 
 * US map of Johns Hopkins data
 
-See =us-map-jh=
+See [[https://github.com/aezarebski/vegacookbook/tree/master/examples/us-map-jh][=us-map-jh=]]
 
 [[./.thumb/thumbnail-us-map-jh.png]]
