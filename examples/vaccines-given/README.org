@@ -6,7 +6,7 @@ Taken from [[https://www.bbc.co.uk/news/world-europe-55666399]]
 
 * Vega-Lite
 
-[[./vaccines-given-vegalight.png]]
+[[./vaccines-given-vegalite.png]]
 
 ** Steps
 
