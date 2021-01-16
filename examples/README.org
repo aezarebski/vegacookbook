@@ -1,3 +1,9 @@
+* Vaccines given
+
+See [[https://github.com/aezarebski/vegacookbook/tree/master/examples/vaccines-given][=vaccines-given=]]
+
+[[./.thumb/thumbnail-vaccines-given.png]]
+
 * R over time
 
 See [[https://github.com/aezarebski/vegacookbook/tree/master/examples/r-over-time][=r-over-time=]]

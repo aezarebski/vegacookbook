@@ -1,0 +1,104 @@
+* BBC
+
+[[./vaccines-given-bbc.png]]
+
+Taken from [[https://www.bbc.co.uk/news/world-europe-55666399]]
+
+* Vega-Lite
+
+[[./vaccines-given-vegalight.png]]
+
+** Steps
+
+1. Extract the data from the figure (by hand!)
+2. Use Gpick to get the colours out, although there is some difficulty getting
+   the opacity correct.
+
+THe data can be read off of the figure since it is labelled.
+
+#+begin_src csv :tangle doses.csv
+code,countryName,doses
+"ISR","Israel",25
+"ARE","United Arab Emirates",15.4
+"GBR","UK",5
+"USA","US",3.4
+"ITA","Italy",1.6
+"ESP","Spain",1.4
+"RUS","Russia",1
+"DEU","Germany",1
+"CHN","China",0.7
+"TUR","Turkey",0.5
+#+end_src
+
+
+#+begin_src js :tangle vaccines-given.json
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "data": {
+        "url": "doses.csv"
+    },
+    "encoding": {
+        "y": {
+            "field": "countryName",
+            "type": "nominal",
+            "sort": "-doses",
+            "title": null,
+            "axis": {
+                "grid": false,
+                "ticks": false,
+                "labelFontSize": 17,
+                "labelColor": "#636373",
+                "labelPadding": 10,
+                "title": false,
+                "domainWidth": 2,
+                "domainColor": "black",
+                "offset": 1
+            }
+        },
+        "x": {
+            "field": "doses",
+            "type": "quantitative",
+            "title": null,
+            "axis": {
+                "grid": false,
+                "ticks": false,
+                "domain": false,
+                "labels": false
+            }
+        }
+    },
+    "layer": [
+        {
+            "mark": {
+                "type": "bar",
+                "color": "#D1700D"
+            }
+        },
+        {
+            "mark": {
+                "type": "text",
+                "color": "black",
+                "fontWeight": "bold",
+                "dx": 15
+            },
+            "encoding": {
+                "text": {
+                    "field": "doses"
+                }
+            }
+        }
+    ],
+    "title": {
+        "text": "Vaccination doses by population",
+        "subtitle": ["Reported vaccine doses administered per 100 people", "in the 10 countries with the most vaccinations"],
+        "align": "left",
+        "anchor": "start",
+        "fontSize": 23,
+        "font": "serif",
+        "subtitleFontSize": 15
+    },
+    "view": {"stroke": null},
+    "width": 250
+}
+#+end_src
+ 

@@ -19,6 +19,8 @@ produced by the BBC. Again, the goal is not to create a pixel-perfect
 replication of the original but to get close enough that the differences are the
 type of thing that one might leave for tidying up with a vector graphics editor.
 
+- [[https://github.com/aezarebski/vegacookbook/tree/master/examples/vaccines-given][=vaccines-given=]] shows a bar chart of the number of vaccine doses per hundred
+  people.
 - [[https://github.com/aezarebski/vegacookbook/tree/master/examples/r-over-time][=r-over-time=]] shows a ribbon plot to display the uncertainty in estimates of
   the effective reproduction number of SARS-CoV-2 in UK.
 - [[https://github.com/aezarebski/vegacookbook/tree/master/examples/ecdc-covid-cases][=ecdc-covid-cases=]] shows time series of cases of COVID-19 per capta for
